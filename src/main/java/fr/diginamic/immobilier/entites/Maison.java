@@ -42,7 +42,7 @@ public class Maison {
 	}
 	
 	public int nbPieces() {
-		return pieces.length-1;
+		return pieces.length;
 	}
 
 	/** Retourne la superficie d'un étage
@@ -54,7 +54,7 @@ public class Maison {
 
 		for (int i = 0; i < pieces.length; i++) {
 			if (choixEtage == this.pieces[i].getNumEtage()) {
-				superficieEtage = this.pieces[i].getSuperficie();
+				superficieEtage = this.pieces[i].getSuperficie() + superficieEtage;
 			}
 		}
 
