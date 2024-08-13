@@ -8,7 +8,7 @@ package fr.diginamic.enumerations;
 public enum Saison {
 
 	/** Les 4 instances de Saison */
-	PRINTEMPS("Printemps", 1), ETE("Eté", 2), AUTOMNE("Automne", 3), HIVER("Hiver", 4);
+	PRINTEMPS("printemps", 1), ETE("été", 2), AUTOMNE("automne", 3), HIVER("hiver", 4);
 
 	/** libelle */
 	private String libelle;
@@ -28,19 +28,22 @@ public enum Saison {
 
 	/**
 	 * Permet de rechercher une Saison à partir de son libellé\
-	 * Commentaire par Filip: we need to cxl return null, otherwise the code fails
+	 * Commentaire par Filip: il faut supprimer le premier "return null", sinon le test échoue
+	 * Le deuxième "retour null" doit être en dehors de la boucle for
+	 * J'ai également ajouté un test pour normaliser les cas, il renverra désormais le cas quel que soit le cas.
+	 * Je voulais faire la même chose avec les accents mais c'est trop difficile pour le moment et sort du cadre de cet exercice.
 	 * 
 	 * @param libelle libellé
 	 * @return {@link Saison}
 	 */
 	public static Saison valueOfLibelle(String libelle) {
+
+		String normalizedLibelle = libelle.toLowerCase();
+
 		Saison[] saisons = Saison.values();
 		for (Saison saison : saisons) {
-			if (libelle.equals(saison.getLibelle())) {
+			if (normalizedLibelle.equals(saison.getLibelle())) {
 				return saison;
-			}
-			else {
-				return null;
 			}
 		}
 		return null;
