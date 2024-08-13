@@ -20,16 +20,26 @@ public class Maison {
 	 * @param nvPiece nouvelle pièce à ajouter
 	 */
 	public void ajouterPiece(Piece nvPiece) {
+
+		if (nvPiece == null) {
+			return;
+		}
+
+		// Check if the superficie is 0 or less, and skip adding if true
+		if (nvPiece.getSuperficie() <= 0) {
+			System.out.println("Il faut que la superficie soit supérieure à 0");
+			return;  // Skip adding this piece
+		}
 		
 		// On est obligé d'agrandir le tableau initial de 1 à chaque ajout
 		// d'une nouvelle pièce
 		
 		// On commence donc par créer un tableau temporaire appelé newTab
-		// qui a une taille égale à la tableau du tableau pieces+1
+		// qui a une taille égale au tableau du tableau pieces+1
 		Piece[] newTab = new Piece[pieces.length+1];
 		
 		// On déverse toutes les pièces du tableau pieces dans newTab
-		for (int i=0; i<pieces.length; i++){
+		for (int i=0; i<pieces.length; i++) {
 			newTab[i]=pieces[i];
 		}
 		
@@ -68,8 +78,10 @@ public class Maison {
 	public double superficieTypePiece(String typePiece) {
 		double superficie = 0;
 
-		for (int i = 1; i < pieces.length; i++) {
-			if (typePiece!=null && typePiece.equals(this.pieces[i].getType())) {
+		String nomalizedTypePiece = typePiece.toUpperCase();
+
+		for (int i = 0; i < pieces.length; i++) {
+			if (nomalizedTypePiece!=null && nomalizedTypePiece.equals(this.pieces[i].getType().toUpperCase())) {
 				superficie = superficie + this.pieces[i].getSuperficie();
 			}
 		}

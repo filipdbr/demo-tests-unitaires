@@ -29,4 +29,24 @@ Dans le cas des chaînes vides, la fonction renvoie la longueur du seul mot. Si 
 
 <h2>TP3</h2>
 
-(À venir)
+Lors du premier test, j'ai remarqué que le nombre total de pièces était la taille réelle du tableau moins 1, ce qui indiquait que la fonction ne fonctionnait pas correctement. J'ai dû modifier la fonction `nbPieces` pour corriger ce problème.
+
+Pendant le deuxième test, j'ai constaté que la méthode `superficieEtage` ne fonctionnait pas correctement. La boucle ne prenait en compte que le dernier résultat sans ajouter la superficie actuelle au total. J'ai corrigé cette erreur en modifiant la boucle pour qu'elle additionne correctement la superficie courante :
+```java
+superficieEtage = this.pieces[i].getSuperficie() + superficieEtage;
+```
+
+Pour la méthode ajouterPiece(), j'ai remarqué que si le paramètre était null, la pièce était tout de même ajoutée. J'ai corrigé cela en ajoutant ce bloc de code au début de la fonction :
+
+public void ajouterPiece(Piece nvPiece) {
+
+	if (nvPiece == null) {
+		return;
+	}
+
+Enfin, il y avait une erreur dans la méthode superficieTypePiece. La boucle commençait avec i = 1, ce qui ignorait le premier élément du tableau. J'ai corrigé cette erreur en faisant commencer la boucle à l'index 0.
+
+J'ai également trouvé et corrigé quelques autres petites erreurs dans le code pour améliorer la robustesse et la précision des tests.
+
+<h3>Auteur :</h3> 
+Filip DABROWSKI
