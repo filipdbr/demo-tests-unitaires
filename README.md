@@ -19,9 +19,14 @@ Solution Apportée
     J'ai introduit une insensibilité à la casse (case insensitivity) pour que la méthode ne tienne pas compte de la taille des caractères lors de la comparaison.
     J'ai également envisagé d'ajouter une "insensibilité aux accents" (accents insensitivity), mais cela dépassait le cadre de l'exercice et était trop complexe à ce stade.
 
-TP2
+<h2>TP2</h2>
 
-(À venir)
-TP3
+Dans ce cas, le code a bien fonctionné, le premier test a fonctionné du premier coup. Pour gérer les valeurs "nulles", j'ai dû ajouter une exception dans la première partie du code.
+
+<h3>Tests Unitaires:</h3>
+Dans le cas des chaînes vides, la fonction renvoie la longueur du seul mot. Si des valeurs sont nulls, le système throws une exception.
+
+
+<h2>TP3</h2>
 
 (À venir)
