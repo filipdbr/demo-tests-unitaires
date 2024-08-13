@@ -27,7 +27,8 @@ public enum Saison {
 	}
 
 	/**
-	 * Permet de rechercher une Saison à partir de son libellé
+	 * Permet de rechercher une Saison à partir de son libellé\
+	 * Commentaire par Filip: we need to cxl return null, otherwise the code fails
 	 * 
 	 * @param libelle libellé
 	 * @return {@link Saison}
